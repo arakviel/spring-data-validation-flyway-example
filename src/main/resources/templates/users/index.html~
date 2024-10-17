@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Список користувачів</title>
+</head>
+<body>
+<h1>Список користувачів</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Електронна пошта</th>
+        <th>Роль</th>
+        <th>Дата створення</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Перебираємо користувачів і виводимо їх у таблиці -->
+    <tr th:each="user : ${users}">
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.email}"></td>
+        <td th:text="${user.role}"></td>
+        <td th:text="${user.createdAt != null ? #dates.format(user.createdAt, 'yyyy-MM-dd HH:mm:ss') : 'Невідомо'}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

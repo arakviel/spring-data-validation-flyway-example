@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="uk" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Список користувачів</title>
+</head>
+<body>
+<h1>Список користувачів</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Електронна пошта</th>
+        <th>Роль</th>
+        <th>Дата створення</th>
+        <th>Дії</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user : ${users}">
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.email}"></td>
+        <td th:text="${user.role}"></td>
+        <td th:text="${user.createdAt != null ? #dates.format(user.createdAt, 'yyyy-MM-dd HH:mm:ss') : 'Невідомо'}"></td>
+        <td>
+            <a th:href="@{/dashboard/users/edit/{id}(id=${user.id})}">Редагувати</a>
+            <a onclick="return confirm('Ви впевнені, що хочете видалити цього користувача?');"
+               th:href="@{/dashboard/users/delete/{id}(id=${user.id})}">Видалити</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<a th:href="@{'/dashboard/users/create'}">Додати нового користувача</a>
+</body>
+</html>

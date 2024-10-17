@@ -1,0 +1,20 @@
+package com.arakviel.eventlistenerdemo;
+
+import com.arakviel.eventlistenerdemo.entity.User;
+import java.io.Serial;
+import lombok.Getter;
+import org.springframework.context.ApplicationEvent;
+
+@Getter
+public class CreatedUserEvent extends ApplicationEvent {
+
+    @Serial
+    private static final long serialVersionUID = 1L;
+    
+    private final User user;
+
+    public CreatedUserEvent(Object source, User user) {
+        super(source);
+        this.user = user;
+    }
+}

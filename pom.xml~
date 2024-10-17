@@ -70,8 +70,8 @@
       <groupId>org.liquibase</groupId>
     </dependency>
     <dependency>
-      <artifactId>spring-boot-starter-thymeleaf</artifactId>
       <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-thymeleaf</artifactId>
     </dependency>
     <dependency>
       <artifactId>lombok</artifactId>
